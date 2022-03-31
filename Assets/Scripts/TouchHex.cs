@@ -11,17 +11,15 @@ public class TouchHex : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // проверяем рядом ли хекс который надо моменять местами.
+        // проверяем рядом ли хекс который надо поменять местами.
         if (GameManager.isActivHex && Vector3.Distance(GameManager.activHex.transform.position, transform.position) >
                                    0.2
                                    && Vector3.Distance(GameManager.activHex.transform.position, transform.position) <
                                    1.2)
         {
-            Debug.Log(GameManager.activHex.transform.position + " мой " + transform.position);
-            var a = transform.position;
-            var b = GameManager.activHex.transform.position;
-            GameManager.activHex.transform.position = a;
-            transform.position = b;
+            (transform.position, GameManager.activHex.transform.position) =
+                (GameManager.activHex.transform.position, transform.position); // меняем местами значение трансформа у хексов. 
+ 
             transform.position += new Vector3(0, -0.1f, 0);
             GameManager.isActivHex = false;
             GameManager.activHex.GetComponent<TouchHex>()._onActivUp = false;
