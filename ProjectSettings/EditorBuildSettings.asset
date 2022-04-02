@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestHex.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Menu.unity
+    guid: 7ec70cfbd394a034599ef4a359561a11
+  - enabled: 1
+    path: Assets/Scenes/LoopRunner.unity
+    guid: 191be9135af464b43ae8129ab4828666
   m_configObjects: {}

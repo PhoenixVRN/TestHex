@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCube : MonoBehaviour
 {
-   
-    void Start()
+    private void Update()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = -transform.forward * SpawnCube.Speed;
-    }
-
-    
-    void Update()
-    {
-        
+        transform.Translate(-Vector3.forward * SpawnCube.Speed * Time.deltaTime);
     }
 }
