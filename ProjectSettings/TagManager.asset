@@ -8,6 +8,8 @@ TagManager:
   - Enamy
   - Experience
   - Wall
+  - Com_1
+  - Com_2
   layers:
   - Default
   - TransparentFX

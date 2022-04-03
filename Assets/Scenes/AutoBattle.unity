@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,9 +137,10 @@ GameObject:
   - component: {fileID: 73078733}
   - component: {fileID: 73078736}
   - component: {fileID: 73078737}
+  - component: {fileID: 73078738}
   m_Layer: 0
   m_Name: Sphere_1
-  m_TagString: Untagged
+  m_TagString: Com_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,11 +255,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Spearman
   side: 1
   hp: 80
   distanceAttac: 2
   damage: 3
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &73078738
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73078731}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &142056540
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,9 +596,10 @@ GameObject:
   - component: {fileID: 472818556}
   - component: {fileID: 472818559}
   - component: {fileID: 472818560}
+  - component: {fileID: 472818561}
   m_Layer: 0
   m_Name: Cube_2
-  m_TagString: Untagged
+  m_TagString: Com_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,11 +714,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Knight
   side: 2
   hp: 100
   distanceAttac: 1
   damage: 5
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &472818561
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472818554}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &545221865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,9 +1124,10 @@ GameObject:
   - component: {fileID: 1287277486}
   - component: {fileID: 1287277489}
   - component: {fileID: 1287277490}
+  - component: {fileID: 1287277491}
   m_Layer: 0
   m_Name: Sphere_2
-  m_TagString: Untagged
+  m_TagString: Com_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,11 +1242,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Spearman
   side: 2
   hp: 80
   distanceAttac: 2
   damage: 3
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &1287277491
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287277484}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1389616027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,9 +1534,10 @@ GameObject:
   - component: {fileID: 1547285763}
   - component: {fileID: 1547285766}
   - component: {fileID: 1547285767}
+  - component: {fileID: 1547285768}
   m_Layer: 0
   m_Name: Cylinder_2
-  m_TagString: Untagged
+  m_TagString: Com_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1592,11 +1653,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Archer
   side: 2
   hp: 50
   distanceAttac: 4
   damage: 2
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &1547285768
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547285761}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1736462702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,9 +1813,10 @@ GameObject:
   - component: {fileID: 1853418170}
   - component: {fileID: 1853418173}
   - component: {fileID: 1853418174}
+  - component: {fileID: 1853418175}
   m_Layer: 0
   m_Name: Cylinder_1
-  m_TagString: Untagged
+  m_TagString: Com_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,11 +1932,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Archer
   side: 1
   hp: 50
   distanceAttac: 4
   damage: 2
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &1853418175
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853418168}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1887513584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1970,7 @@ GameObject:
   - component: {fileID: 1887513586}
   - component: {fileID: 1887513589}
   - component: {fileID: 1887513590}
+  - component: {fileID: 1887513591}
   m_Layer: 0
   m_Name: Cube_1
   m_TagString: Untagged
@@ -1987,11 +2088,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f05ec6bcbe31a47a536bd6d7a910ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grey: {fileID: 2100000, guid: 3379c53869a0b7045955c0fb17e126b5, type: 2}
   name: Knight
   side: 1
   hp: 100
   distanceAttac: 1
   damage: 5
+  speedMovePlayer: 2
+  isDead: 0
+--- !u!54 &1887513591
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887513584}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1957797984
 GameObject:
   m_ObjectHideFlags: 0
