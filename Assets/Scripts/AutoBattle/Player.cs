@@ -15,7 +15,12 @@ public class Player: MonoBehaviour
     public int damage;
     public float speedMovePlayer;
     
-    [HideInInspector] public bool isDead;
+    public enum typeStrategy {WhoIsCloser, AllForTheWeak}
+
+    public typeStrategy typeStrategyPlayer;
+    
+
+        [HideInInspector] public bool isDead;
     
     private ObjectNameView _playerGUI;
     private GameManagerBattle _gameManager;
@@ -30,7 +35,7 @@ public class Player: MonoBehaviour
         _gameManager = GameObject.Find("GameManagerBattle").GetComponent<GameManagerBattle>();
         _playerGUI = GetComponent<ObjectNameView>();
         _playerGUI.text = "HP " + hp;
-        WhoIsCloser();
+        GoStrategy();
     }
 
   void Update()
@@ -60,7 +65,7 @@ public class Player: MonoBehaviour
   }
   
 // бъем кто ближе
-  public void WhoIsCloser()
+  private void WhoIsCloser()
   {
       var minDist = 100f;
       
@@ -106,17 +111,62 @@ public class Player: MonoBehaviour
       }
 
       _enamyPlayer = _enamyTarget.transform.GetComponent<Player>();
-      _enamyTarget.GetComponent<Player>().deadEnamy += deadEnamyq;
       
-//     _tween = transform.DOMove(_enamyTarget.transform.position, 3).SetAutoKill(false);
-//     _targetLastPos = _enamyTarget.transform.position;
+      _enamyTarget.GetComponent<Player>().deadEnamy += deadEnamyq;
+  }
+// Бьем самого слабог
+  private void AllForTheWeak()
+  {
+      var minHp = 1000f;
+      
+      if (side == 1)
+      {
+          if (_gameManager.player_2.Count != 0)
+          {
+              foreach (var enamy in _gameManager.player_2)
+              {
+                  var hpEn = enamy.transform.GetComponent<Player>().hp;
+                  if (minHp > hpEn)
+                  {
+                      minHp = hpEn;
+                      _enamyTarget = enamy;
+                  }
+              }
+          }
+          else
+          {
+              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+              return;  // TODO  ВИН
+          }
+      }
+      else
+      {
+          if (_gameManager.player_1.Count != 0)
+          {
+              foreach (var enamy in _gameManager.player_1)
+              {
+                  var hpEn = enamy.transform.GetComponent<Player>().hp;
+                  if (minHp > hpEn)
+                  {
+                      minHp = hpEn;
+                      _enamyTarget = enamy;
+                  }
+              }
+          }
+          else
+          {
+              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+              return; // TODO  ВИН
+          }
+      }
+
+      _enamyPlayer = _enamyTarget.transform.GetComponent<Player>();
   }
 
   private void deadEnamyq (GameObject enamy)
   {
       _enamyTarget = null;
-      Debug.Log("Event");
-      WhoIsCloser();
+      GoStrategy();
   }
   private void Hit()
   {
@@ -124,7 +174,10 @@ public class Player: MonoBehaviour
       {
           _timeDamag = 1;
           _enamyPlayer.Damage(damage);
-          if(_enamyPlayer.isDead) WhoIsCloser();
+          if (_enamyPlayer.isDead)
+          {
+              GoStrategy();
+          }
       }
   }
 
@@ -172,5 +225,30 @@ public class Player: MonoBehaviour
               }
           }
       }
+  }
+
+  public void GoStrategy()
+  {
+      switch (typeStrategyPlayer)
+      {
+          case typeStrategy.WhoIsCloser:
+              WhoIsCloser();
+              break;
+          case typeStrategy.AllForTheWeak:
+              AllForTheWeak();
+              break;
+      }
+  }
+
+  public void ChangeStrategyWhoIsCloser()
+  {
+      typeStrategyPlayer = typeStrategy.WhoIsCloser;
+      GoStrategy();
+  }
+  
+  public void ChangeStrategyAllForTheWeak()
+  {
+      typeStrategyPlayer = typeStrategy.AllForTheWeak;
+      GoStrategy();
   }
 }
