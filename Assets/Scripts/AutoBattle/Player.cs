@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class Player: MonoBehaviour
 {
@@ -14,6 +13,14 @@ public class Player: MonoBehaviour
     public float distanceAttac;
     public int damage;
     public float speedMovePlayer;
+    public float rof;
+    public AudioSource attacAudio;
+    public AudioSource deadAudio;
+    public AudioSource musicAudio;
+    
+    public GameObject timerText;
+    public Timer _timer;
+    public GameObject restartgame;
     
     public enum typeStrategy {WhoIsCloser, AllForTheWeak}
 
@@ -29,29 +36,27 @@ public class Player: MonoBehaviour
     private Tweener _tween;
     private float _timeDamag;
     private Player _enamyPlayer;
-    
+    private bool _move;
+
     void Start()
     {
         _gameManager = GameObject.Find("GameManagerBattle").GetComponent<GameManagerBattle>();
         _playerGUI = GetComponent<ObjectNameView>();
         _playerGUI.text = "HP " + hp;
-        GoStrategy();
     }
 
   void Update()
   {
       _timeDamag -= Time.deltaTime;
        MoveInEnamy();
-        
-    }
+  }
 
   public delegate void Dead(GameObject gameObject);
   public event Dead deadEnamy;
-
-  // ReSharper disable Unity.PerformanceAnalysis
+  
   private void MoveInEnamy()
   {
-      if (_enamyTarget.transform != null)
+      if (_move)
       {
           if (Distance(_enamyTarget) < distanceAttac)
           {
@@ -85,8 +90,7 @@ public class Player: MonoBehaviour
           }
           else
           {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-              return;  // TODO  ВИН
+              GameOver();
           }
       }
       else
@@ -105,8 +109,7 @@ public class Player: MonoBehaviour
           }
           else
           {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-              return; // TODO  ВИН
+              GameOver();
           }
       }
 
@@ -135,8 +138,7 @@ public class Player: MonoBehaviour
           }
           else
           {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-              return;  // TODO  ВИН
+              GameOver();
           }
       }
       else
@@ -155,8 +157,7 @@ public class Player: MonoBehaviour
           }
           else
           {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-              return; // TODO  ВИН
+             GameOver();
           }
       }
 
@@ -172,7 +173,8 @@ public class Player: MonoBehaviour
   {
       if (_timeDamag < 0 && isDead == false)
       {
-          _timeDamag = 1;
+          attacAudio.Play();
+          _timeDamag = rof;
           _enamyPlayer.Damage(damage);
           if (_enamyPlayer.isDead)
           {
@@ -192,9 +194,8 @@ public class Player: MonoBehaviour
       hp = hp - damageIn;
       if (hp <= 0)
       {
+          deadAudio.Play();
           deadEnamy?.Invoke(gameObject);
-//          RemoveListPlayer();
-//          Destroy(gameObject);
           RemoveListPlayer();
           gameObject.GetComponent<MeshRenderer>().material = _grey;
           isDead = true;
@@ -229,6 +230,7 @@ public class Player: MonoBehaviour
 
   public void GoStrategy()
   {
+      _move = true;
       switch (typeStrategyPlayer)
       {
           case typeStrategy.WhoIsCloser:
@@ -250,5 +252,14 @@ public class Player: MonoBehaviour
   {
       typeStrategyPlayer = typeStrategy.AllForTheWeak;
       GoStrategy();
+  }
+
+  public void GameOver()
+  {
+      musicAudio.Stop();
+      Time.timeScale = 0f;
+      timerText.SetActive(true);
+      timerText.GetComponent<Text>().text = _timer.TimerText();
+      restartgame.SetActive(true);
   }
 }
