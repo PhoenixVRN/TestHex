@@ -1,47 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     [HideInInspector] public float timer;
-    private int sec;
-    private int min;
+    private int _sec;
+    private int _min;
    
     void Start()
     {
         timer = 0;
-        sec = 0;
-        min = 0;
+        _sec = 0;
+        _min = 0;
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         timer = timer + Time.deltaTime;
         if (timer > 1)
         {
             timer = 0;
-            sec++;
+            _sec++;
         }
-        if (sec > 60)
+        if (_sec > 60)
         {
-            sec = 0;
-            min++;
+            _sec = 0;
+            _min++;
         }
     }
 
     public void StartTimer()
     {
         timer = 0;
-        sec = 0;
-        min = 0;
+        _sec = 0;
+        _min = 0;
     }
 
     public string TimerText()
     {
-        var x = min.ToString() + ":" + sec.ToString();
+        var x = _min.ToString() + ":" + _sec.ToString();
         return x;
     }
 }

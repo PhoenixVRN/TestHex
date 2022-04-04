@@ -4,20 +4,20 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     
-    [SerializeField] private GameObject pauseGameMenu;
-    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject _pauseGameMenu;
+    [SerializeField] private GameObject _pauseButton;
 
     public void Pause()
     {
-        pauseGameMenu.SetActive(true);
-        pauseButton.SetActive(false);
+        _pauseGameMenu.SetActive(true);
+        _pauseButton.SetActive(false);
         Time.timeScale = 0f;
     }
 
     public void Continue()
     {
-        pauseGameMenu.SetActive(false);
-        pauseButton.SetActive(true);
+        _pauseGameMenu.SetActive(false);
+        _pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
 

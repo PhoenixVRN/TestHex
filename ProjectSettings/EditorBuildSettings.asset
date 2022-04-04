@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuBattler.unity
+    path: Assets/Scenes/AutoBattler/MenuBattler.unity
     guid: 094d30cb98caabd49ba4013fcb08a4c5
   - enabled: 1
-    path: Assets/Scenes/AutoBattle.unity
+    path: Assets/Scenes/AutoBattler/AutoBattle.unity
     guid: 65283564e33718844895d4c31f5283da
   m_configObjects: {}

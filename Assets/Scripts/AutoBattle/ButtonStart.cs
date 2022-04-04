@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class ButtonStart : MonoBehaviour
 {
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource _audio;
+    
     public GameObject buttonStart;
+    
     private GameManagerBattle _gameManager;
     
     void Start()
@@ -13,7 +15,7 @@ public class ButtonStart : MonoBehaviour
 
     public void StartGame()
     {
-        audio.Play();
+        _audio.Play();
         buttonStart.SetActive(false);
         foreach (var entini in _gameManager.player_1)
         {

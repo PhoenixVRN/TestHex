@@ -4,6 +4,7 @@ public class TacticRight : MonoBehaviour
 {
     [SerializeField] private GameObject _panelTacticRight;
     [SerializeField] private GameObject _buttonTacticRight;
+    
     private GameManagerBattle _gameManager;
    
     void Start()
@@ -20,9 +21,9 @@ public class TacticRight : MonoBehaviour
 
     public void AtWhoIsCloserRight()
     {
-        foreach (var entini in _gameManager.player_2)
+        foreach (var entiti in _gameManager.player_2)
         {
-            entini.GetComponent<Player>().ChangeStrategyWhoIsCloser();
+            entiti.GetComponent<Player>().ChangeStrategyWhoIsCloser();
         }
         _panelTacticRight.SetActive(false);
         _buttonTacticRight.SetActive(true);
@@ -31,9 +32,9 @@ public class TacticRight : MonoBehaviour
     
     public void AtAllForTheWeakRight()
     {
-        foreach (var entini in _gameManager.player_2)
+        foreach (var entiti in _gameManager.player_2)
         {
-            entini.GetComponent<Player>().ChangeStrategyAllForTheWeak();
+            entiti.GetComponent<Player>().ChangeStrategyAllForTheWeak();
         }
         _panelTacticRight.SetActive(false);
         _buttonTacticRight.SetActive(true);

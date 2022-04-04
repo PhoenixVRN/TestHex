@@ -1,12 +1,13 @@
-using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class Player: MonoBehaviour
 {
     [SerializeField] private Material _grey;
+    [HideInInspector] public bool isDead;
+    
     public string name;
     public int side;
     public int hp;
@@ -17,26 +18,20 @@ public class Player: MonoBehaviour
     public AudioSource attacAudio;
     public AudioSource deadAudio;
     public AudioSource musicAudio;
-    
     public GameObject timerText;
     public Timer _timer;
     public GameObject restartgame;
-    
-    public enum typeStrategy {WhoIsCloser, AllForTheWeak}
 
-    public typeStrategy typeStrategyPlayer;
-    
-
-        [HideInInspector] public bool isDead;
-    
     private ObjectNameView _playerGUI;
     private GameManagerBattle _gameManager;
     private GameObject _enamyTarget;
     private  Vector3 _targetLastPos;
-    private Tweener _tween;
     private float _timeDamag;
     private Player _enamyPlayer;
     private bool _move;
+    
+    public enum typeStrategy {WhoIsCloser, AllForTheWeak}
+    public typeStrategy typeStrategyPlayer;
 
     void Start()
     {
@@ -63,30 +58,19 @@ public class Player: MonoBehaviour
               Hit();
               return;
           }
-
           transform.position = Vector3.MoveTowards(transform.position, _enamyTarget.transform.position, 
               speedMovePlayer * Time.deltaTime);
       }
   }
   
-// бъем кто ближе
+// бьем кто ближе
   private void WhoIsCloser()
   {
-      var minDist = 100f;
-      
       if (side == 1)
       {
           if (_gameManager.player_2.Count != 0)
           {
-              foreach (var enamy in _gameManager.player_2)
-              {
-                  var dist = Distance(enamy);
-                  if (minDist > dist)
-                  {
-                      minDist = dist;
-                      _enamyTarget = enamy;
-                  }
-              }
+              DistanceSearchEnamy(_gameManager.player_2);
           }
           else
           {
@@ -97,15 +81,7 @@ public class Player: MonoBehaviour
       {
           if (_gameManager.player_1.Count != 0)
           {
-              foreach (var enamy in _gameManager.player_1)
-              {
-                  var dist = Distance(enamy);
-                  if (minDist > dist)
-                  {
-                      minDist = dist;
-                      _enamyTarget = enamy;
-                  }
-              }
+              DistanceSearchEnamy(_gameManager.player_1);
           }
           else
           {
@@ -120,21 +96,11 @@ public class Player: MonoBehaviour
 // Бьем самого слабог
   private void AllForTheWeak()
   {
-      var minHp = 1000f;
-      
       if (side == 1)
       {
           if (_gameManager.player_2.Count != 0)
           {
-              foreach (var enamy in _gameManager.player_2)
-              {
-                  var hpEn = enamy.transform.GetComponent<Player>().hp;
-                  if (minHp > hpEn)
-                  {
-                      minHp = hpEn;
-                      _enamyTarget = enamy;
-                  }
-              }
+             LookingForTheWeakest(_gameManager.player_2);
           }
           else
           {
@@ -145,15 +111,7 @@ public class Player: MonoBehaviour
       {
           if (_gameManager.player_1.Count != 0)
           {
-              foreach (var enamy in _gameManager.player_1)
-              {
-                  var hpEn = enamy.transform.GetComponent<Player>().hp;
-                  if (minHp > hpEn)
-                  {
-                      minHp = hpEn;
-                      _enamyTarget = enamy;
-                  }
-              }
+              LookingForTheWeakest(_gameManager.player_1);
           }
           else
           {
@@ -182,7 +140,6 @@ public class Player: MonoBehaviour
           }
       }
   }
-
   public float Distance(GameObject enamy)
   {
       var    dist = Vector3.Distance(transform.position, enamy.transform.position);
@@ -208,24 +165,12 @@ public class Player: MonoBehaviour
   {
       if (side == 1)
       {
-          for (int i = 0; i < _gameManager.player_1.Count; i++)
-          {
-              if (_gameManager.player_1[i] == gameObject)
-              {
-                  _gameManager.player_1.RemoveAt(i);
-              }
-          }
-      }
-      else
+          RemoveList(_gameManager.player_1);
+      }else
       {
-          for (int i = 0; i < _gameManager.player_2.Count; i++)
-          {
-              if (_gameManager.player_2[i] == gameObject)
-              {
-                  _gameManager.player_2.RemoveAt(i);
-              }
-          }
+          RemoveList(_gameManager.player_2);
       }
+      
   }
 
   public void GoStrategy()
@@ -261,5 +206,44 @@ public class Player: MonoBehaviour
       timerText.SetActive(true);
       timerText.GetComponent<Text>().text = _timer.TimerText();
       restartgame.SetActive(true);
+  }
+
+  private void RemoveList(List<GameObject> list)
+  {
+      for (int i = 0; i < list.Count; i++)
+      {
+          if (list[i] == gameObject)
+          {
+              list.RemoveAt(i);
+          }
+      }
+  }
+
+  private void DistanceSearchEnamy(List<GameObject> list)
+  {
+      var minDist = 100f;
+      foreach (var enamy in list)
+      {
+          var dist = Distance(enamy);
+          if (minDist > dist)
+          {
+              minDist = dist;
+              _enamyTarget = enamy;
+          }
+      }
+  }
+
+  private void LookingForTheWeakest(List<GameObject> list)
+  {
+      var minHp = 1000f;
+      foreach (var enamy in list)
+      {
+          var hpEn = enamy.transform.GetComponent<Player>().hp;
+          if (minHp > hpEn)
+          {
+              minHp = hpEn;
+              _enamyTarget = enamy;
+          }
+      }
   }
 }
