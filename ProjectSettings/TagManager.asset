@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Com_1
   - Com_2
+  - RoadPoint
   layers:
   - Default
   - TransparentFX
