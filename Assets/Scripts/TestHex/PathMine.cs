@@ -7,7 +7,7 @@ public class PathMine : MonoBehaviour
 {
     [SerializeField] private float rayDistance = 0.35f;
     [SerializeField] private GameObject _startButton; 
-    [SerializeField] public Transform target;
+    [SerializeField]  private int _speedTruck;
     [HideInInspector] public Vector3[] waypoints;
     
     public Transform startPosition;
@@ -16,9 +16,9 @@ public class PathMine : MonoBehaviour
 
 
     private List<Vector3> _pointList = new List<Vector3>();
-    private int _duration;
     private RaycastHit hit;
     private bool _nextPoint = true;
+    private Transform target;
 
 
     void Start()
@@ -35,13 +35,12 @@ public class PathMine : MonoBehaviour
     {
         _startButton.SetActive(false);
         BuildingPath();
-        _duration = _pointList.Count;
         waypoints = _pointList.ToArray();
         
-        Debug.Log(_duration.ToString());
-        Tween t = target.DOPath(waypoints, _duration, pathType)
+        Tween t = target.DOPath(waypoints, _speedTruck, pathType)
             .SetOptions(false)
-            .SetLookAt(0.001f);
+            .SetLookAt(0.01f);
+        t.SetSpeedBased(true);
         t.SetEase(Ease.Linear).SetLoops(0);
     }
     
