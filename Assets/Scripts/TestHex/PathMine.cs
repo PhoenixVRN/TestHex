@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class PathMine : MonoBehaviour
 {
-    [SerializeField] private float rayDistance = 1f;
-
+    [SerializeField] private float rayDistance = 0.35f;
+    [SerializeField] private GameObject _startButton; 
+    [SerializeField] public Transform target;
+    [HideInInspector] public Vector3[] waypoints;
+    
     public Transform startPosition;
-    public Transform target;
     public PathType pathType = PathType.CatmullRom;
-    public Vector3[] waypoints;
-//    public Transform test;
+   
+
 
     private List<Vector3> _pointList = new List<Vector3>();
     private int _duration;
@@ -21,26 +23,17 @@ public class PathMine : MonoBehaviour
 
     void Start()
     {
-        
+        target = startPosition;
     }
 
     private void Update()
     {
- //       Detected();
-    }
 
-    public void DebugingDrow()
-    {
-        
     }
 
     public void SetWaypoints()
     {
-        /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Road");
-        foreach (var e in enemies)
-        {
-            _pointList.Add(e.transform.position);
-        }*/
+        _startButton.SetActive(false);
         BuildingPath();
         _duration = _pointList.Count;
         waypoints = _pointList.ToArray();
@@ -56,7 +49,6 @@ public class PathMine : MonoBehaviour
 
     public void BuildingPath()
     {
-//        var nextPosition = startPosition.transform.position;
         var point = startPosition.transform.gameObject;
 
         while (_nextPoint)
@@ -68,10 +60,7 @@ public class PathMine : MonoBehaviour
                 Debug.DrawRay(ray.origin, ray.direction, Color.red, 1);
                 if (hit.collider.gameObject.tag == "RoadPoint")
                 {
-//                    Debug.Log("Наши точку");
-//                    var pos = transform.position;
-                    _pointList.Add(hit.transform.position);
-//                    nextPosition = hit.transform.position;
+                    _pointList.Add(hit.transform.position);            
                     point = hit.transform.gameObject;
                 }
                 else
@@ -88,7 +77,7 @@ public class PathMine : MonoBehaviour
 
     public Vector3 LocalInWorld(GameObject pos)
     {
-        var v1 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.right);
+        var v1 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.forward);
         var v0 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.zero);
         Vector3 dir = v1 - v0;
         return dir;
