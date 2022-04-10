@@ -11,6 +11,8 @@ TagManager:
   - Com_1
   - Com_2
   - RoadPoint
+  - Apple
+  - Bad
   layers:
   - Default
   - TransparentFX
