@@ -38,10 +38,7 @@ public class UIAnimator : MonoBehaviour
     {
         _bttnAuto.LeanMoveLocal(new Vector3(0f, 0f, 0f), _timeMoveIcon).setEaseInOutBack();
         _bttnAuto.LeanScale(Vector3.one, _timeSizeIcon).setEaseInBack();
-        //LeanScale
-//        _bttnAuto.LeanScale(Vector2.one, _timeSizeBttn).setEaseOutBack().delay = _timeDelaySizeBttn;
-//        _bttnExit.LeanScale(Vector2.one, _timeSizeBttn).setEaseOutBack().delay = _timeDelaySizeBttn;
-//        _bttnStart.LeanScale(Vector2.one, _timeSizeBttn).setEaseOutBack().delay = _timeDelaySizeBttn;
+        
         _bttnExit.LeanScale(new Vector3(1f, 1, 1), _timeSizeBttn).setEaseInBack();
         _bttnStart.LeanScale(new Vector3(1f, 1, 1), _timeSizeBttn).setEaseInBack();
     }
