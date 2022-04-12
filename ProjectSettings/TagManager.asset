@@ -15,6 +15,7 @@ TagManager:
   - Bad
   - Start
   - Exit
+  - Auto
   layers:
   - Default
   - TransparentFX
