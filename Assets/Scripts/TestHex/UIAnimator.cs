@@ -31,30 +31,22 @@ public class UIAnimator : MonoBehaviour
   
     void Start()
     {
- //       _bttnAuto.localScale = Vector2.zero;
         _bttnExit.localScale = Vector3.zero;
         _bttnStart.localScale = Vector3.zero;
-        ShowBttn();
-    }
-
-   
-    void Update()
-    {
         
-    }
-    
-    private void ShowBttn()
-    {
-        _audioGameNameStart.Play();
-        _gameName.LeanMoveLocal(new Vector3(16f, 0f, 0f), _timeMoveGameName).setEaseInOutBack();
-        _bttnAuto.LeanScale(Vector3.one, _timeSizeIcon).setEaseInBack();
-
         StartCoroutine(AnimUI());
-        
     }
+
+    
 
     private IEnumerator AnimUI()
     {
+        _gameName.LeanMoveLocal(new Vector3(16f, 0f, 0f), _timeMoveGameName).setEaseInOutBack();
+        _bttnAuto.LeanScale(Vector3.one, _timeSizeIcon).setEaseInBack();
+        yield return new WaitForSeconds(0.1f);
+        _audioGameNameStart.Play();
+
+        
         yield return new WaitForSeconds(3f);
         _bttnExit.LeanScale(new Vector3(1f, 1, 1), _timeSizeBttn).setEaseInBack();
         _audioMenuPoint.Play();

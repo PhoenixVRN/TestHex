@@ -1,13 +1,19 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathMine : MonoBehaviour
 {
     [SerializeField] private float rayDistance = 0.35f;
     [SerializeField] private GameObject _startButton; 
     [SerializeField]  private int _speedTruck;
+    [SerializeField]  private AudioSource _startAudioTruck;
+    [SerializeField]  private AudioSource _failAudioTruck;
+    
+    
     [HideInInspector] public Vector3[] waypoints;
     
     public Transform startPosition;
@@ -19,20 +25,31 @@ public class PathMine : MonoBehaviour
     private RaycastHit hit;
     private bool _nextPoint = true;
     private Transform target;
+    private Vector3 _lastPos;
+    private bool _isMove;
 
 
     void Start()
     {
+        _isMove = false;
         target = startPosition;
+        _lastPos = transform.position;
     }
 
     private void Update()
     {
-
+        if (_isMove) ChecMove();
     }
 
     public void SetWaypoints()
     {
+        StartCoroutine(StartTruck());
+    }
+
+    IEnumerator StartTruck()
+    {
+        _startAudioTruck.Play();
+        yield return new WaitForSeconds(1.5f);
         _startButton.SetActive(false);
         BuildingPath();
         waypoints = _pointList.ToArray();
@@ -42,6 +59,9 @@ public class PathMine : MonoBehaviour
             .SetLookAt(0.01f);
         t.SetSpeedBased(true);
         t.SetEase(Ease.Linear).SetLoops(0);
+        
+        yield return new WaitForSeconds(1.5f);
+        _isMove = true;
     }
     
     
@@ -81,24 +101,25 @@ public class PathMine : MonoBehaviour
         Vector3 dir = v1 - v0;
         return dir;
     }
-    
-    /*public void Detected()
+  
+    private void ChecMove()
     {
-        var nextPosition = test.transform.position;
-        
-        var V1 = test.transform.localToWorldMatrix.MultiplyPoint(Vector3.right);
-        var V0 = test.transform.localToWorldMatrix.MultiplyPoint(Vector3.zero);
-        
-        Ray ray = new Ray(nextPosition, V1-V0);
-        if (Physics.Raycast(ray, out hit, rayDistance))
+        if (_lastPos == transform.position)
         {
-            Debug.DrawRay(ray.origin, ray.direction, Color.red);
-            if (hit.collider.gameObject.tag == "RoadPoint")
-            {
-                Debug.Log("Наши точку");
-               _pointList.Add(hit.transform.position);
-                nextPosition = hit.transform.position;
-            }
+            _isMove = false;
+            _startAudioTruck.Stop();
+            _failAudioTruck.Play();
+            StartCoroutine(Restart());
         }
-    }*/
+        else
+        {
+            _lastPos = transform.position;
+        }
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
