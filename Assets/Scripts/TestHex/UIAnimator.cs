@@ -41,7 +41,7 @@ public class UIAnimator : MonoBehaviour
 
     private IEnumerator AnimUI()
     {
-        _gameName.LeanMoveLocal(new Vector3(16f, 0f, 0f), _timeMoveGameName).setEaseInOutBack();
+        _gameName.LeanMoveLocal(new Vector3(20f, 0f, 0f), _timeMoveGameName).setEaseInOutBack();
         _bttnAuto.LeanScale(Vector3.one, _timeSizeIcon).setEaseInBack();
         yield return new WaitForSeconds(0.1f);
         _audioGameNameStart.Play();
@@ -55,7 +55,7 @@ public class UIAnimator : MonoBehaviour
         _audioMenuPoint.Play();
         
         yield return new WaitForSeconds(1f);
-        _bttnAuto.LeanMoveLocal(new Vector3(0f, 0f, 0f), _timeMoveIcon).setEaseInOutBack();
+        _bttnAuto.LeanMoveLocal(new Vector3(0f, -50f, 0f), _timeMoveIcon).setEaseInOutBack();
         _bttnAuto.LeanScale(Vector3.one, _timeSizeIcon).setEaseInBack();
         _audioStartButtonGo.Play();
     }
