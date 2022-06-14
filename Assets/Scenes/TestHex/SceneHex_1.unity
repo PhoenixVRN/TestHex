@@ -2139,7 +2139,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041F\u041E\u0413\u041D\u0410\u041B\u0418"
+  m_Text: Let's GO!
 --- !u!222 &1495935820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3391,7 +3391,7 @@ GameObject:
   - component: {fileID: 2146824105}
   - component: {fileID: 2146824104}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GO_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
