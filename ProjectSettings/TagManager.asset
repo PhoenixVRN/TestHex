@@ -13,6 +13,9 @@ TagManager:
   - RoadPoint
   - Apple
   - Bad
+  - Start
+  - Exit
+  - Auto
   layers:
   - Default
   - TransparentFX
