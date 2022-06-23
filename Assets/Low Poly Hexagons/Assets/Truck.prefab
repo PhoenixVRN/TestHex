@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 0.35
-  _startButton: {fileID: 0}
+  _startButton: {fileID: 438291976799758876, guid: 113ccb0cba36bc741a641d4604569485, type: 3}
   _speedTruck: 0
+  _startAudioTruck: {fileID: 0}
+  _failAudioTruck: {fileID: 0}
   waypoints: []
   startPosition: {fileID: 1893406721853742651}
   pathType: 1
