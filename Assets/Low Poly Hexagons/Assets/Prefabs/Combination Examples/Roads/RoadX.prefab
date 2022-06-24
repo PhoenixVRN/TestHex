@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 2507549928124136319}
   - component: {fileID: 2484929164713306491}
   - component: {fileID: 2493165938075251489}
+  - component: {fileID: -6799626911838217549}
   m_Layer: 0
   m_Name: RoadX
   m_TagString: Road
@@ -405,6 +406,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3426e5da740db4f87510eb5ac4780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6799626911838217549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494736450400955393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3045127921782269389

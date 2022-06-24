@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 33175149857128714}
   - component: {fileID: 23691324528500736}
   - component: {fileID: 64722864467933510}
+  - component: {fileID: -4533012390354291950}
   m_Layer: 0
   m_Name: RoadRoundabout FIXED
   m_TagString: Road
@@ -675,6 +676,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ec55075d188c17f409c030e2fa6d4ebf, type: 3}
+--- !u!114 &-4533012390354291950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877856315905462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1742648868467709327
 PrefabInstance:
   m_ObjectHideFlags: 0

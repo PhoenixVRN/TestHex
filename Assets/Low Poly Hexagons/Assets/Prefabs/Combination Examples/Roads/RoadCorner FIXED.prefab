@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33192795941102650}
   - component: {fileID: 23954414882594370}
   - component: {fileID: 64665434778668102}
+  - component: {fileID: 1306447658323141259}
   m_Layer: 0
   m_Name: RoadCorner FIXED
   m_TagString: Road
@@ -107,6 +108,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ec55075d188c17f409c030e2fa6d4ebf, type: 3}
+--- !u!114 &1306447658323141259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852279436740924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336869284037885096
 GameObject:
   m_ObjectHideFlags: 0

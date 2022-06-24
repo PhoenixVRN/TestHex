@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 3717994580070934408}
   - component: {fileID: 3688390998494091910}
   - component: {fileID: 514845946754996649}
+  - component: {fileID: 3205480414324436690}
   m_Layer: 0
   m_Name: RoadY
   m_TagString: Untagged
@@ -592,6 +593,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3426e5da740db4f87510eb5ac4780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3205480414324436690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733405473977806698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4081071256961572218

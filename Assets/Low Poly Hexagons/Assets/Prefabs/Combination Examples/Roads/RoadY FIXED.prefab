@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 3728245203653290024}
   - component: {fileID: 3717994580070934408}
   - component: {fileID: 3688390998494091910}
+  - component: {fileID: -6677145736249819073}
   m_Layer: 0
   m_Name: RoadY FIXED
   m_TagString: Untagged
@@ -584,6 +585,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ac4a5a9e24f3efa44b8f02171e9eefda, type: 3}
+--- !u!114 &-6677145736249819073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733405473977806698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4081071256961572218
 GameObject:
   m_ObjectHideFlags: 0
