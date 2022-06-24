@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 338167146680312513}
   - component: {fileID: 288740057577025733}
   - component: {fileID: 352533474246617759}
+  - component: {fileID: -2570092190191904828}
   m_Layer: 0
   m_Name: RoadCornerIce
   m_TagString: Road
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3426e5da740db4f87510eb5ac4780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2570092190191904828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352098742367516095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e968398ee3fe994c87b2680d8c46ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1615086736243818539
