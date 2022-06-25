@@ -38,7 +38,7 @@ public class PathMine : MonoBehaviour
 
     private void Update()
     {
-        if (_isMove) ChecMove();
+      //  if (_isMove) ChecMove();
     }
 
     public void SetWaypoints()
@@ -62,6 +62,7 @@ public class PathMine : MonoBehaviour
         
         yield return new WaitForSeconds(1.5f);
         _isMove = true;
+        StartCoroutine(ChecMoveng());
     }
     
     
@@ -101,7 +102,27 @@ public class PathMine : MonoBehaviour
         Vector3 dir = v1 - v0;
         return dir;
     }
-  
+
+    IEnumerator ChecMoveng()
+    {
+        while (_isMove)
+        {
+            yield return new WaitForSeconds(0.2f);
+            if (_lastPos == transform.position)
+            {
+                _isMove = false;
+                _startAudioTruck.Stop();
+                _failAudioTruck.Play();
+ //               StartCoroutine(Restart());
+            }
+            else
+            {
+                _lastPos = transform.position;
+            }
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
     private void ChecMove()
     {
         if (_lastPos == transform.position)
