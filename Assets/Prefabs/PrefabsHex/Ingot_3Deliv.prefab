@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6128793007480146416
+--- !u!1 &6753731763800238290
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6793126332221936458}
-  - component: {fileID: 7631864127614344431}
-  - component: {fileID: 5624191869302810661}
-  - component: {fileID: 4236102956246275190}
-  - component: {fileID: 2198989901836249012}
+  - component: {fileID: 6265003980316062312}
+  - component: {fileID: 7016072175264906701}
+  - component: {fileID: 5096648924592752903}
   m_Layer: 0
-  m_Name: Ingot_3
+  m_Name: Ingot_3Deliv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6793126332221936458
+--- !u!4 &6265003980316062312
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128793007480146416}
+  m_GameObject: {fileID: 6753731763800238290}
   m_LocalRotation: {x: -0.6530593, y: -0.2711339, z: -0.2711339, w: 0.6530593}
-  m_LocalPosition: {x: 1.68, y: 0.251, z: -2.87}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -45.094}
---- !u!33 &7631864127614344431
+--- !u!33 &7016072175264906701
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128793007480146416}
+  m_GameObject: {fileID: 6753731763800238290}
   m_Mesh: {fileID: -5495902117074765545, guid: 3128597a516a76947ad2f0ae8d4d31e6, type: 3}
---- !u!23 &5624191869302810661
+--- !u!23 &5096648924592752903
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128793007480146416}
+  m_GameObject: {fileID: 6753731763800238290}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,32 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4236102956246275190
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128793007480146416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.04
-  m_Center: {x: -0.0034197508, y: -0.001437041, z: 0.0033542675}
---- !u!114 &2198989901836249012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128793007480146416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d851316f9379348bd0756fb104dd2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Ingot
-  item: {fileID: 6793126332221936458}
-  _audioPointItem: {fileID: 0}
-  _timeSizeIcon: 5
