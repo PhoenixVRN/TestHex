@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestHex/SceneStartMenuHex.unity
-    guid: 003e6bee0dbefa34fb0c6ad9a7a1fa93
+    path: Assets/Scenes/TestHex/Menu.unity
+    guid: 6d300213d7048f64a9032945803d7c0a
   - enabled: 1
     path: Assets/Scenes/TestHex/SceneHex_1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TestHex/SceneStartMenuHex.unity
+    guid: 003e6bee0dbefa34fb0c6ad9a7a1fa93
   m_configObjects: {}
