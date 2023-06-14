@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UILevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int _levelScene;
 
-    // Update is called once per frame
-    void Update()
+    public void SetLevel(int level)
     {
-        
+        _levelScene = level;
+        gameObject.GetComponentInChildren<TextMeshProUGUI>().text = _levelScene.ToString();
+    }
+    public void DownloadLevel()
+    {
+        SceneManager.LoadScene(_levelScene);
     }
 }

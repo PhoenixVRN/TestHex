@@ -1,3 +1,4 @@
+using Core.AudioSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,4 +14,9 @@ public class ButtonClickMask : MonoBehaviour //не идеальное реше�
         bt = gameObject.GetComponent<Image>();
         bt.alphaHitTestMinimumThreshold = AlphaLevel; //4
     }
+
+    // public void Tap()
+    // {
+    //     AudioManagerView.Instance.PlaySound(ESound.Tap);
+    // }
 }
