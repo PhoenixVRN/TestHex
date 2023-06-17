@@ -56,7 +56,6 @@ public class PathMine : MonoBehaviour
 
     IEnumerator StartTruck()
     {
-        Debug.Log("StartTruck");
         _startAudioTruck.Play();
         yield return new WaitForSeconds(1.5f);
         //_startButton.SetActive(false);
@@ -78,7 +77,6 @@ public class PathMine : MonoBehaviour
 
     public void BuildingPath()
     {
-        Debug.Log("BuildingPath");
         var point = startPosition.transform.gameObject;
 
         while (_nextPoint)
@@ -107,7 +105,6 @@ public class PathMine : MonoBehaviour
 
     public Vector3 LocalInWorld(GameObject pos)
     {
-        Debug.Log("LocalInWorld");
         var v1 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.forward);
         var v0 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.zero);
         Vector3 dir = v1 - v0;
@@ -116,7 +113,6 @@ public class PathMine : MonoBehaviour
 
     IEnumerator ChecMoveng()
     {
-        Debug.Log("ChecMoveng");
         while (_isMove)
         {
             yield return new WaitForSeconds(0.2f);

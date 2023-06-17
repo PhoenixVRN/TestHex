@@ -9,6 +9,7 @@
         Settings,
         Shop,
         StartGameView,
+        Summary,
         Pause
     }
 }
