@@ -23,13 +23,13 @@ namespace Core.UI
         private void Start()
         {
             _manager = CanvasManager.Instance;
-            _manager.GameState = EGameState.Start;
-            //_manager.ShowWindow(EWindowType.GameView, transform);
-            _manager.ShowWindow(EWindowType.StartGameView, transform);
-            //SwordShopView.Instance.ChoiseNewSword();
-            Time.timeScale = 1;
-            Time.fixedDeltaTime = 0.02f;
-            //Instantiate(prefabBGMusic, Vector3.zero, Quaternion.identity);
+            //_manager.GameState = EGameState.Start;
+            //-_manager.ShowWindow(EWindowType.GameView, transform);
+            //_manager.ShowWindow(EWindowType.StartGameView, transform);
+            //-SwordShopView.Instance.ChoiseNewSword();
+            //Time.timeScale = 1;
+            //Time.fixedDeltaTime = 0.02f;
+            //-Instantiate(prefabBGMusic, Vector3.zero, Quaternion.identity);
         }
 
         private void Update()

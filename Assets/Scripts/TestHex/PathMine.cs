@@ -28,6 +28,8 @@ public class PathMine : MonoBehaviour
     private Vector3 _lastPos;
     private bool _isMove;
 
+    private Tween _t;
+
 
     void Start()
     {
@@ -43,22 +45,29 @@ public class PathMine : MonoBehaviour
 
     public void SetWaypoints()
     {
-        StartCoroutine(StartTruck());
+        if (!_isMove)
+            StartCoroutine(StartTruck());
+        else
+        {
+            _nextPoint = false;
+        }
+        
     }
 
     IEnumerator StartTruck()
     {
+        Debug.Log("StartTruck");
         _startAudioTruck.Play();
         yield return new WaitForSeconds(1.5f);
-        _startButton.SetActive(false);
+        //_startButton.SetActive(false);
         BuildingPath();
         waypoints = _pointList.ToArray();
         
-        Tween t = target.DOPath(waypoints, _speedTruck, pathType)
+        _t = target.DOPath(waypoints, _speedTruck, pathType)
             .SetOptions(false)
             .SetLookAt(0.01f);
-        t.SetSpeedBased(true);
-        t.SetEase(Ease.Linear).SetLoops(0);
+        _t.SetSpeedBased(true);
+        _t.SetEase(Ease.Linear).SetLoops(0);
         
         yield return new WaitForSeconds(1.5f);
         _isMove = true;
@@ -69,6 +78,7 @@ public class PathMine : MonoBehaviour
 
     public void BuildingPath()
     {
+        Debug.Log("BuildingPath");
         var point = startPosition.transform.gameObject;
 
         while (_nextPoint)
@@ -97,6 +107,7 @@ public class PathMine : MonoBehaviour
 
     public Vector3 LocalInWorld(GameObject pos)
     {
+        Debug.Log("LocalInWorld");
         var v1 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.forward);
         var v0 = pos.transform.localToWorldMatrix.MultiplyPoint(Vector3.zero);
         Vector3 dir = v1 - v0;
@@ -105,6 +116,7 @@ public class PathMine : MonoBehaviour
 
     IEnumerator ChecMoveng()
     {
+        Debug.Log("ChecMoveng");
         while (_isMove)
         {
             yield return new WaitForSeconds(0.2f);
@@ -130,7 +142,7 @@ public class PathMine : MonoBehaviour
             _isMove = false;
             _startAudioTruck.Stop();
             _failAudioTruck.Play();
-            StartCoroutine(Restart());
+            //StartCoroutine(Restart());
         }
         else
         {
@@ -138,9 +150,15 @@ public class PathMine : MonoBehaviour
         }
     }
 
-    IEnumerator Restart()
+    // IEnumerator Restart()
+    // {
+    //     yield return new WaitForSeconds(3f);
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
+
+    public void Restart()
     {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _t.Kill();
+       Destroy(gameObject);
     }
 }

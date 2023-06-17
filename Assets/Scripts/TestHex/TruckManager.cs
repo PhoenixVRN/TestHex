@@ -5,9 +5,4 @@ using UnityEngine;
 public class TruckManager : MonoBehaviour
 {
     public Transform cargoitem;
-    
-    void Start()
-    {
-     
-    }
 }

@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2446873135570245072}
   - component: {fileID: 2446873135570245073}
   - component: {fileID: 2446873135570245074}
+  - component: {fileID: 7162770849705108096}
   m_Layer: 5
   m_Name: ExitTheMenu
   m_TagString: Untagged
@@ -256,7 +257,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2446873135570245073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7162770849705108096}
+        m_TargetAssemblyTypeName: GoToScene, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7162770849705108096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446873135570245076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5286d16b9f0c24da2bc1218ef6e872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2446873135650527324
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -700,7 +725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -781,6 +806,7 @@ GameObject:
   - component: {fileID: 2446873136875482468}
   - component: {fileID: 2446873136875482469}
   - component: {fileID: 2446873136875482470}
+  - component: {fileID: 6239591542740353232}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -890,7 +916,44 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2446873136875482469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6239591542740353232}
+        m_TargetAssemblyTypeName: TestUI, Assembly-CSharp
+        m_MethodName: ShowOptionsWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2446873135650527322}
+        m_TargetAssemblyTypeName: Core.UI.WindowView, Assembly-CSharp
+        m_MethodName: HideWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6239591542740353232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446873136875482488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0eb97bdeecd77440903a8ca82d5409d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _window: 4
 --- !u!1 &2446873136887470033
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +1043,7 @@ GameObject:
   - component: {fileID: 2446873137187556195}
   - component: {fileID: 2446873137187556196}
   - component: {fileID: 2446873137187556197}
+  - component: {fileID: 6854980216839633127}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -1089,4 +1153,41 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2446873137187556196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6854980216839633127}
+        m_TargetAssemblyTypeName: TestUI, Assembly-CSharp
+        m_MethodName: ShowOptionsWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2446873135650527322}
+        m_TargetAssemblyTypeName: Core.UI.WindowView, Assembly-CSharp
+        m_MethodName: HideWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6854980216839633127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446873137187556199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0eb97bdeecd77440903a8ca82d5409d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _window: 0
