@@ -11,6 +11,8 @@ namespace Core.UI
 
         private CanvasGroup _canvas;
         private Tween _tween;
+
+        public WindowView _progenitor;
         
         public EWindowType GetWindowType => windowType;
         private void Awake()
